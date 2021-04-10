@@ -12,7 +12,11 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.setup();
 }
-
+GameManager.prototype.log = function () {
+  fetch('https://2048GrandMastersBackend.cubeythecube.repl.co/leaderboard/' + this.score, {
+    method: 'GET'
+  });
+};
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
@@ -84,6 +88,7 @@ GameManager.prototype.actuate = function () {
 
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
+    this.log();
     this.storageManager.clearGameState();
   } else {
     this.storageManager.setGameState(this.serialize());
