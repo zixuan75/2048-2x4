@@ -13,7 +13,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.setup();
 }
 GameManager.prototype.log = function () {
-  fetch('https://2048GrandMastersBackend.cubeythecube.repl.co/leaderboard/' + this.score, {
+  fetch('https://20482x4Backend.cubeythecube.repl.co/leaderboard/' + this.score, {
     method: 'GET'
   });
 };
